@@ -1,6 +1,7 @@
 # HaruPan
 HaruPanどんなツールなのでしょうか
 
+[![Call reusable Flake8](https://github.com/JS2IIU-MH/HaruPan/actions/workflows/flake8.yml/badge.svg)](https://github.com/JS2IIU-MH/HaruPan/actions/workflows/flake8.yml)
 ![](https://byob.yarr.is/JS2IIU-MH/HaruPan/passing_lints)
 ![](https://byob.yarr.is/JS2IIU-MH/HaruPan/time1)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
