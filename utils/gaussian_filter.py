@@ -14,7 +14,7 @@ def generate_gaussian_kernel(
         Returns
             kernel as np.ndarray
     '''
-    
+
     # kernel size == even -> Assertion Error
     assert kernel_width % 2 == 1 and kernel_height % 2 == 1
 
@@ -61,10 +61,12 @@ def convolution(
             h = kernel[y_kernel + kernel_height // 2,
                        x_kernel + kernel_width // 2]
             value += h * img.getpixel((x_img, y_img))
-    
+
     return value
 
 def apply_filter(img: Image.Image, kernel: np.ndarray):
+    ''' 1枚の画像に対してフィルタを適用する '''
+
     width, height = img.size
     # filtered image to return
     img_filtered = Image.new(mode='L', size=(width, height))
@@ -74,7 +76,7 @@ def apply_filter(img: Image.Image, kernel: np.ndarray):
         for x in range(width):
             filtered_value = convolution(img, kernel, x, y)
             img_filtered.putpixel((x, y), int(filtered_value))
-    
+
     return img_filtered
 
 def main():
@@ -83,7 +85,6 @@ def main():
     img = Image.open('processed_image/point_0.5/001.jpg')
 
     img_filtered = apply_filter(img, kernel)
-
     img_filtered.save('filtered.jpg')
 
 if __name__ == '__main__':
