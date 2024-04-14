@@ -1,6 +1,10 @@
 # HaruPan
 HaruPanどんなツールなのでしょうか
 
+![](https://byob.yarr.is/JS2IIU-MH/HaruPan/passing_lints)
+![](https://byob.yarr.is/JS2IIU-MH/HaruPan/time1)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
+
 
 ## files
 
@@ -9,14 +13,14 @@ HaruPanどんなツールなのでしょうか
 | [`main/count_circle.py`](main/count_circle.py) | 円を検出。OpenCV利用 |
 | [`utils/heic_to_jpeg.py`](utils/heic_to_jpeg.py) | HEIC -> JPEG変換 |
 | [`utils/image_preprocess.py`](utils/image_preprocess.py) | データセットの元となる画像を前処理する |
-|  |  |
+| [`utils/gaussian_filter.py`](utils/gaussian_filter.py) | ガウシアンフィルタ |
 | [`sample_image/sampledata_listing.py`](sample_image/sampledata_listing.py) | `sample_image`フォルダ以下にあるイメージファイルのリストを作成する。リストは`sample_image/image_list_####.csv` |
 
 ## Resources
 
 |directory | description |
 |---|---|
-| sample_image | シールの元データ。1つ1つのシールに切り取られている状態。サイズ不定。カラー。 |
+| [`sample_image`](sample_image) | シールの元データ。1つ1つのシールに切り取られている状態。サイズ不定。カラー。 |
 
 ## メモ
 ### 学習用画像セットの準備
