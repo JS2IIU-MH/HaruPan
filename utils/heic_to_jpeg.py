@@ -6,6 +6,7 @@ import os
 import pillow_heif
 from PIL import Image
 
+
 def list_heic_images(target_dir):
     ''' target_dirの中にあるHEICファイルをリストにする '''
     out_list = []
@@ -52,6 +53,7 @@ def main():
         for f in heic_files:
             basename_without_ext = os.path.splitext(os.path.basename(f))[0]
             heic2jpg(f, f'{dist_dir}/{basename_without_ext}.jpg')
+
 
 if __name__ == '__main__':
     main()

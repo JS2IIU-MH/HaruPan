@@ -5,10 +5,11 @@ import os
 import re
 
 import numpy as np
-from PIL import Image, ImageFilter
+from PIL import Image
 
 # 処理後の画像サイズ
 IMG_ROWS, IMG_COLS = 28, 28
+
 
 def img_preprocess(filename, outfilename):
     # ロード
@@ -25,8 +26,8 @@ def img_preprocess(filename, outfilename):
     # Save
     Image.fromarray(img).save(outfilename)
 
-
     return img
+
 
 def main():
     DESTINATION_DIR = 'processed_image'

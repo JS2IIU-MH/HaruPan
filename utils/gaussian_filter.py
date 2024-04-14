@@ -3,6 +3,7 @@
 from PIL import Image
 import numpy as np
 
+
 def generate_gaussian_kernel(
         kernel_width: int,
         kernel_height: int,
@@ -31,6 +32,7 @@ def generate_gaussian_kernel(
     kernel /= np.sum(kernel)
 
     return kernel
+
 
 def convolution(
         img: Image.Image,
@@ -64,6 +66,7 @@ def convolution(
 
     return value
 
+
 def apply_filter(img: Image.Image, kernel: np.ndarray):
     ''' 1枚の画像に対してフィルタを適用する '''
 
@@ -79,13 +82,15 @@ def apply_filter(img: Image.Image, kernel: np.ndarray):
 
     return img_filtered
 
+
 def main():
     kernel = generate_gaussian_kernel(5, 5, 1.3)
-    
+
     img = Image.open('processed_image/point_0.5/001.jpg')
 
     img_filtered = apply_filter(img, kernel)
     img_filtered.save('filtered.jpg')
+
 
 if __name__ == '__main__':
     main()

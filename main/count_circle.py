@@ -2,10 +2,11 @@
 
 import cv2
 import numpy as np
-from PIL import Image
-import matplotlib.pyplot as plt
+# from PIL import Image
+# import matplotlib.pyplot as plt
 
 sample_file = 'OUT_IMG/20240408_121522504_iOS.jpg'
+
 
 def find_circle(filename):
     ''' 画像の中の円を検出する, findContours版 '''
@@ -17,7 +18,9 @@ def find_circle(filename):
     _, threshold = cv2.threshold(img, 125, 255, cv2.THRESH_BINARY)
 
     # contours
-    contours, _ = cv2.findContours(threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(threshold,
+                                   cv2.RETR_TREE,
+                                   cv2.CHAIN_APPROX_SIMPLE)
 
     font = cv2.FONT_HERSHEY_DUPLEX
 
@@ -29,8 +32,9 @@ def find_circle(filename):
 
         if len(approx) > 10:
             cv2.putText(img, 'circle', (x, y), font, 1, (0))
-        
+
     cv2.imwrite('OUT_IMG/01_sample.png', img)
+
 
 def find_circle_hough(filename):
     ''' 画像の中の円を検出する, HoughCircles版 '''
@@ -64,7 +68,7 @@ def find_circle_hough(filename):
                                param2=30,
                                minRadius=135,
                                maxRadius=160)
-    
+
     # circles = np.unit16(np.around(circles))
     circles = np.int16(np.around(circles))
 
@@ -74,12 +78,13 @@ def find_circle_hough(filename):
         # draw circle
         cv2.circle(img_dst, (circle[0], circle[1]), circle[2], (255, 150, 255))
         cv2.putText(img_dst, 'circle', (circle[0], circle[1]), font, 1, (0))
-    
+
     cv2.imwrite('OUT_IMG/02h_sample.png', img_dst)
 
 
 def main():
     find_circle_hough(sample_file)
+
 
 if __name__ == '__main__':
     main()
